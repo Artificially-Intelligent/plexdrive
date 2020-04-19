@@ -119,7 +119,7 @@ func downloadFromAPI(client *http.Client, request *Request, delay int64) ([]byte
 			} else {
 				delay = delay * 2
 			}
-			Log.Debugf("Download request throttled. Delayed %v seconds", delay)
+			Log.Debugf("GDrive download request failed, retry delayed %v seconds. request: %v", delay, req)
 			return downloadFromAPI(client, request, delay)
 		}
 
